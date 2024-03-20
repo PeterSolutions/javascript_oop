@@ -77,3 +77,44 @@ const myCat2 = new Cat2("Whiskers", 5, "5kg");
 console.log(myCat2.getWeight());
 myCat2.setWeight("6kg");
 console.log(myCat2.getWeight());
+
+/** Polimorphism */
+class Animal_2 {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  makeSound() {
+    return `Some nice sound made`;
+  }
+}
+
+class Dog_2 extends Animal_2 {
+  // with extends we inherit from the father
+  constructor(name, age, breed) {
+    super(name, age); //with super we refering the class
+    this.breed = breed;
+  }
+
+  makeSound() {
+    return "woof";
+  }
+}
+
+class Cat_2 extends Animal_2 {
+  constructor(name, age, weight) {
+    super(name, age);
+    this.weight = weight;
+  }
+
+  makeSound() {
+    return "meow";
+  }
+}
+
+const myDog_2 = new Dog_2("Laica", 2, "Pastor");
+const myCat_2 = new Cat_2("Michu", 5, "5kg");
+
+console.log(myDog_2.makeSound());
+console.log(myCat_2.makeSound());

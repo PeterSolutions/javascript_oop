@@ -118,3 +118,42 @@ const myCat_2 = new Cat_2("Michu", 5, "5kg");
 
 console.log(myDog_2.makeSound());
 console.log(myCat_2.makeSound());
+
+/** Abstract Class */
+class AbstractAnimal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    if (this.constructor == AbstractAnimal) {
+      throw new Error("Can't create a instance of Abstract class");
+    }
+  }
+
+  makeSound() {
+    throw new Error("abstract method doesn't have an implementation");
+  }
+}
+
+class Dog_3 extends AbstractAnimal {
+  constructor(name, age, breed) {
+    super(name, age); //with super we refering the class
+    this.breed = breed;
+  }
+
+  makeSound() {
+    return "woof";
+  }
+}
+
+class Cat_3 extends AbstractAnimal {
+  constructor(name, age, weight) {
+    super(name, age);
+    this.weight = weight;
+  }
+}
+
+//const otherAnimal = new AbstractAnimal("Churri", 3); can't create instance of abstract class
+const myAbsDog = new Dog_3("REx", 2, "German Sh.");
+const myAbsCat = new Cat_3("WIskers", 5, "5gk");
+console.log("__________________________________");
+//console.log(myAbsCat.makeSound()); // method isn't avaliable

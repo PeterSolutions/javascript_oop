@@ -52,3 +52,28 @@ console.log("______________________________");
 const myCat = new Cat("Whiskers", 5, "5kg");
 console.log(myCat.getInfo());
 console.log(myCat.weight);
+
+/** Encapsulation */
+class Cat2 extends Animal {
+  #weight; // mark as private
+  constructor(name, age, weight) {
+    super(name.age);
+    this.#weight = weight;
+  }
+
+  getWeight() {
+    // getter
+    return this.#weight;
+  }
+
+  setWeight(weight) {
+    //setter
+    this.#weight = weight;
+  }
+}
+
+console.log("______________________________");
+const myCat2 = new Cat2("Whiskers", 5, "5kg");
+console.log(myCat2.getWeight());
+myCat2.setWeight("6kg");
+console.log(myCat2.getWeight());
